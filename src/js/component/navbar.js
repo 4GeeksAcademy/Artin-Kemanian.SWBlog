@@ -17,7 +17,7 @@ export const Navbar = () => {
         <div className="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
           <ul className="navbar-nav">
             <li className="nav-item dropdown">
-              <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <a className="nav-link dropdown-toggle btn btn-primary text-light" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Favorites
               </a>
               <ul className="dropdown-menu">

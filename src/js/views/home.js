@@ -6,10 +6,10 @@ import PlanetCard from "../component/PlanetCard";
 
 export const Home = () => {
 	const cardStyles = {
-		width: '300px', // Establecer el ancho deseado aquí
 	  };
 	const [characters, setCharacters] = useState([])
 	const [planets, setPlanets] = useState([])
+	const [images, setImages] = useState([])
 
 	function getCharacters(){
 		fetch('https://swapi.tech/api/people')
@@ -21,15 +21,24 @@ export const Home = () => {
 		.then((response) => response.json())
 		.then((data) => setPlanets(data.results) )
 	}
+    function getImages(){
+		fetch('https://starwars-visualguide.com/assets/img/characters')
+		.then((response) => response.json())
+		.then((data) => setImages(data.results) )
+	}
 
 	useEffect(()=>{
 		getCharacters(),
-		getPlanets()
+		getPlanets(),
+		getImages()
 	},[])
 
 
 	return (
 		<div className="mt-5">
+			{/* {images.map((image, index) => (
+            	<img src={image} key={index} className="card-img-top" alt="..." />
+			))} */}
 			<h2 className="text-danger">Characters</h2>
 			<div className="d-flex overflow-auto">
 				{characters.map((character, index) => (
